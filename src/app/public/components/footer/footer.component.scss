@@ -1,0 +1,6 @@
+@use './../../../../assets/variables/variables.scss' as v;
+
+footer{
+    height: v.$alto-body;
+    background-color: aliceblue;
+}
