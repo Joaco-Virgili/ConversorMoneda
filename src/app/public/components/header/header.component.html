@@ -1,7 +1,7 @@
 <div id="header">
     <img src="https://cdn-icons-png.flaticon.com/256/4770/4770349.png" alt="">
     <div id="nav">
-        <button id="boton" *ngIf="!auth.token">Cerrar Sesión</button>
+        <button id="boton" (click)="auth.logOut()" *ngIf="auth.token()">Cerrar Sesión</button>
         <div id="text">
             <h1>Convertity</h1>
             <p>Tu conversor de monedas favorito</p>

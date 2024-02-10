@@ -1,1 +1,28 @@
-<p>register works!</p>
+<div class="container">
+    <div class="cont">
+        <div id="form">
+            <h2>Nuevo Ususario</h2>
+            <form #loginForm="ngForm" (ngSubmit)="register()">
+                <div class="ingreso">
+                    <label for="">Nombre</label>
+                    <input type="text" name="name" id="name"[(ngModel)]="registerData.name" required #name="ngModel">
+                </div>                <div class="ingreso">
+                    <label for="">Apellido</label>
+                    <input type="text" name="lastName" id="lastName"[(ngModel)]="registerData.lastName" required #lastName="ngModel">
+                </div>
+                <div class="ingreso">
+                    <label for="">Email</label>
+                    <input type="email" name="user" id="user"[(ngModel)]="registerData.email" required #user="ngModel">
+                </div>
+                <div class="ingreso">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="password" required [(ngModel)]="registerData.password"  #password="ngModel">
+                </div>
+                <button type="submit">Crear Usuario</button>
+            </form>
+            <div id="sin-cuenta">
+                <p>¿Ya tienes cuenta? - <a [routerLink]="['/login']">Inicia Sesión</a></p>
+            </div>
+        </div>
+    </div>
+</div>

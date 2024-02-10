@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+    <div class="cont">
+        <div id="form">
+            <h2>Inicio de Sesión</h2>
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="ingreso">
+                    <label for="">Email</label>
+                    <input type="email" name="user" id="user"[(ngModel)]="loginData.email" required #user="ngModel">
+                </div>
+                <div class="ingreso">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="password" required [(ngModel)]="loginData.password"  #password="ngModel">
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <div id="sin-cuenta">
+                <p>¿No tienes cuenta? - <a [routerLink]="['/register']">Registrate</a></p>
+            </div>
+        </div>
+    </div>
+</div>

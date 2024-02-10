@@ -1,6 +1,5 @@
 import {
     Injectable,
-    Signal,
     WritableSignal,
     inject,
     signal,
@@ -8,6 +7,7 @@ import {
   import { API } from '../../../assets/api/api.connection';
   import { LoginData, RegisterData } from '../interfaces/user';
   import { Router } from '@angular/router';
+  import { jwtDecode } from 'jwt-decode';
   
   @Injectable({
     providedIn: 'root',
@@ -21,7 +21,7 @@ import {
   
     async login(loginData: LoginData) {
       try {
-        const res = await fetch(API + 'authentication/authenticate', {
+        const res = await fetch(API + 'Authentication/authenticate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -54,6 +54,18 @@ import {
     logOut() {
       this.token.set(null);
       localStorage.removeItem('token');
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
+      console.log('SALIENDO');
     }
+    
+    decodedToken(token:string ):any{
+      try{
+        const decoded=jwtDecode(token);
+        return decoded;
+      }catch(error){
+        console.log('error al decodificar el token',error);
+        return null;
+      }
+  };
+
   }

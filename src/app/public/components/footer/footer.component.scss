@@ -1,6 +1,14 @@
 @use './../../../../assets/variables/variables.scss' as v;
 
-footer{
-    height: v.$alto-body;
-    background-color: aliceblue;
+#footer{
+    background-color: v.$color5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: v.$alto-footer;
+    p{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: white;
+    }
 }

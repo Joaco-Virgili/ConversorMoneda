@@ -1,0 +1,6 @@
+<div class="tarjeta-contacto">
+    <p style="font-weight: bold;">{{subscription.name}}</p>
+    <p>Precio: ${{subscription.price}}</p>
+    <p>Cantidad de conversiones: {{subscription.id == 3 ? "Ilimitado" : subscription.amountOfConversion}}</p>
+    <p *ngIf="user.subscriptionId == subscription.id">*Esta es su subscripcion</p>
+</div>

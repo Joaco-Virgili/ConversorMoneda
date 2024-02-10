@@ -1,1 +1,13 @@
-<p>subscription works!</p>
+<div class="contaniner">
+    <div class="cont">
+        <h2>Subscripciones</h2>
+        <div class="subscription">
+            <app-tarjeta-subs
+            *ngFor="let subscription of subscriptions"
+            [subscription]="subscription"
+            [routerLink]="[subscription.id]"
+            (click)="changeSub(subscription.id)" 
+            ></app-tarjeta-subs>
+        </div>
+    </div>
+</div>

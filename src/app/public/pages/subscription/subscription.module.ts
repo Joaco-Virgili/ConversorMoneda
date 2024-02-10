@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionComponent } from './subscription.component';
-
+import { TarjetaSubsComponent } from '../../components/tarjeta-subs/tarjeta-subs.component';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { SubscriptionComponent } from './subscription.component';
   ],
   imports: [
     CommonModule,
-    SubscriptionRoutingModule
+    SubscriptionRoutingModule,
+    TarjetaSubsComponent
   ]
 })
 export class SubscriptionModule { }

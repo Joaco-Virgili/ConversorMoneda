@@ -1,0 +1,21 @@
+@use'./../../../../assets/variables/variables.scss' as v;
+
+.container{
+    display: grid;
+    place-items: center;
+    height: v.$alto-body;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+#click{
+    font-weight: bold;
+    font-size: medium;
+}
