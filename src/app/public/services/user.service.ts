@@ -7,15 +7,16 @@ import { API } from "src/assets/api/api.connection";
     providedIn: 'root'
   })
   export class UserService extends ApiService {
-    async edit(subUserId:UserSubs):Promise<boolean>{
-        if(!subUserId.subscriptionId) return false;
+    
+    async edit(subId:UserSubs):Promise<boolean>{
+        if(!subId.subscriptionId) return false;
         const res = await fetch(API+"User/SubscriptionId",{
           method:'PUT',
           headers:{
             "Content-type":"application/json",
-            Authorization: "Bearer "+this.auth.token()
+            Authorization: "Bearer "+ this.auth.token()
           },
-          body: JSON.stringify(subUserId)
+          body: JSON.stringify(subId)
         })
         return res.ok
       };

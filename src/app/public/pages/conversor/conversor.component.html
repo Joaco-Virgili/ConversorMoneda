@@ -10,7 +10,7 @@
                 </div>
                 <div class="form-group">
                     <label for="input">Valor</label>
-                    <input type="text" name="amount" class="form-control" id="input" [(ngModel)]="conversion.amount">
+                    <input type="text" name="amount" class="form-control" id="input" name="amount" [(ngModel)]="conversion.amount">
                 </div>
             </div>
             <div class="form-group">
@@ -19,8 +19,9 @@
                     <option *ngFor="let currency of currencys" [value]="currency.id">{{currency.name}}</option>
                 </select>
             </div>
-            <button type="submit" (click)="generateConversion()" [disabled]="conversion.toCurrencyId === conversion.fromCurrencyId">Convertir</button>
+            <button type="submit">Convertir</button>
         </form>
         <a [routerLink]="['/subscription']"><button id="sub-btn" type="button">Subscripción</button></a>
+        <a *ngIf="isAdmin()"><button id="sub-btn" type="button">Nueva Moneda</button></a>
     </div>
 </div>

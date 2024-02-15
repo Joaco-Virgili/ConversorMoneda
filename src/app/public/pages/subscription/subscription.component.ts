@@ -18,12 +18,9 @@ export class SubscriptionComponent {
   subscriptions:Subscription[] = []
 
   subData:UserSubs = {
-    subscriptionId: 1 
+    subscriptionId: 0
   }
 
-  user = {
-    subscriptionId: 0
-  };
 
   @Input() subscription = {
     id: 0,
@@ -37,20 +34,22 @@ export class SubscriptionComponent {
       this.subscriptions = res;
     })
   }
-  changeSub(id:number){
-    this.userService.edit(this.user).then(res => {
+
+
+  changeSub(subId: number){
+    this.userService.edit(this.subData).then(res => {
       Swal.fire({
         title: "¿Estas seguro que desas cambiar de subscripción?",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Si, cambiar"
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: "Cambiado",
+            text: "Su subscripcion ha sido cambiada con exito",
             icon: "success"
           });
         }

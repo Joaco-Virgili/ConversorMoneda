@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoginData } from '../../interfaces/user';
+import { ConversionService } from '../../services/converison.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,8 @@ import { LoginData } from '../../interfaces/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  authService = inject(AuthService)
+  authService = inject(AuthService);
+  conversionService = inject(ConversionService)
   router = inject(Router);
   errorLogin = signal(false);
   cargando = signal(false);

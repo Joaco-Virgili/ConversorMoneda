@@ -27,6 +27,7 @@ export class TarjetaSubsComponent {
   user = {
     subscriptionId: 0
   };
+  
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');

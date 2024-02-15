@@ -5,14 +5,18 @@ import {
     signal,
   } from '@angular/core';
   import { API } from '../../../assets/api/api.connection';
-  import { LoginData, RegisterData } from '../interfaces/user';
+  import { LoginData, RegisterData, User } from '../interfaces/user';
   import { Router } from '@angular/router';
-  import { jwtDecode } from 'jwt-decode';
+  import { JwtPayload, jwtDecode } from 'jwt-decode';
+  import { ApiService } from './api.service';
+import { ConversionService } from './converison.service';
+import { ɵparseCookieValue } from '@angular/common';
   
   @Injectable({
     providedIn: 'root',
   })
   export class AuthService {
+
     constructor() {
       this.token.set(localStorage.getItem('token'));
     }
@@ -57,15 +61,4 @@ import {
       this.router.navigate(['/login']);
       console.log('SALIENDO');
     }
-    
-    decodedToken(token:string ):any{
-      try{
-        const decoded=jwtDecode(token);
-        return decoded;
-      }catch(error){
-        console.log('error al decodificar el token',error);
-        return null;
-      }
-  };
-
   }

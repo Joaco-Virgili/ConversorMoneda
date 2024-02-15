@@ -1,6 +1,7 @@
 @use '../../../../assets/variables/variables.scss' as v;
 
 .tarjeta-contacto{
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +11,8 @@
     min-width: 100px;
     padding: 20px;
     border: 1px solid v.$color-boton;
-    background-color: antiquewhite;
+    background-color: #ffff;
+    border-radius: 25px;
     p{
         display: grid;
         place-items: center;
