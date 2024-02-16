@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <label for="selectTo">De</label>
                     <select class="form-control" id="selectTo" [(ngModel)]="conversion.toCurrencyId"  name="toCurrencyId">
-                        <option *ngFor="let currency of currencys" [value]="currency.id">{{currency.name}}</option>
+                        <option *ngFor="let currency of currencys" [value]="currency.name">{{currency.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -16,12 +16,26 @@
             <div class="form-group">
                 <label for="selectFrom">Para</label>
                 <select class="form-control" id="selectFrom" [(ngModel)]="conversion.fromCurrencyId" name="fromCurrencyId">
-                    <option *ngFor="let currency of currencys" [value]="currency.id">{{currency.name}}</option>
+                    <option *ngFor="let currency of currencys" [value]="currency.name">{{currency.name}}</option>
                 </select>
             </div>
             <button type="submit">Convertir</button>
         </form>
-        <a [routerLink]="['/subscription']"><button id="sub-btn" type="button">Subscripción</button></a>
-        <a *ngIf="isAdmin()"><button id="sub-btn" type="button">Nueva Moneda</button></a>
+        <a [routerLink]="['/subscription']" (click)="dialognewCurrency.showModal()"><button id="sub-btn" type="button">Subscripción</button></a>
+        <div id="admin">
+            <a *ngIf="isAdmin()"><button (click)="dialognewCurrency.showModal()" id="sub-btn-adm" type="button">Nueva Moneda</button></a>
+            <dialog method="dialog" #dialognewCurrency>
+                <app-new-currency (cerrar)="dialognewCurrency.close()"></app-new-currency>
+            </dialog>
+            <a *ngIf="isAdmin()"><button (click)="dialogeditCurrency.showModal()" id="sub-btn-adm" type="button">Editar Moneda</button></a>
+            <dialog method="dialog" #dialogeditCurrency>
+                <app-edit-currency (cerrar)="dialogeditCurrency.close()"></app-edit-currency>
+            </dialog>
+            <a *ngIf="isAdmin()"><button (click)="dialogDeleteCurrency.showModal()" id="sub-btn-adm" type="button">Eliminar Moneda</button></a>
+            <dialog method="dialog" #dialogDeleteCurrency>
+                <app-delete-currency (cerrar)="dialogDeleteCurrency.close()"></app-delete-currency>
+            </dialog>
+        </div>
+        <p>Ha hecho {{ countConversion() }} de sus {{ subUser() === -1 ? '∞' : subUser() }} </p>
     </div>
 </div>

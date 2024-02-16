@@ -1,0 +1,14 @@
+<div class="container">
+    <form #newCurrencyForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Eliminar moneda</h2>
+        <div class="form-group">
+            <select class="form-control" id="selectTo" name="toCurrencyId" [(ngModel)]="currency.id">
+                <option *ngFor="let currency of currencys" [value]="currency.id">{{currency.name}}</option>
+            </select>
+        </div>
+        <div class="boton">
+            <button type="submit" id="especial">Eliminar</button>
+            <button type="button" id="cerrar" (click)="cerrar.emit()">Cancelar</button>
+        </div>
+    </form>
+</div>

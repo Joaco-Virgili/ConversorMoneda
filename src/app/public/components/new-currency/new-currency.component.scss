@@ -1,0 +1,76 @@
+@use '../../../../assets/variables/variables.scss' as v;
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 300px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    h2{
+        font-size: x-large;
+    }
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    label{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    select{
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    input{
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+}
+
+.boton{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:5px;
+    button{
+        height: 50px;
+        width: 75px;
+    }
+}
+
+#especial{
+    background-color: rgb(72, 75, 252);
+    color: black;
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 100ms;
+    &:hover{
+        filter: brightness(0.8);
+    }
+}
+
+#cerrar{
+    font-weight: bold;
+    color: black;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 100ms;
+    &:hover{
+        filter: brightness(0.8);
+    }
+}

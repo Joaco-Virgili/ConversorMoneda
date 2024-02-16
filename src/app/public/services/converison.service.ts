@@ -18,15 +18,18 @@ export class ConversionService extends ApiService {
       const res = await fetch(API + 'CurrencyConverison',{
         method:'POST',
         headers:{
-          "Content-type":"application/json",
+          'Content-Type': 'application/json',
           Authorization: "Bearer "+ this.auth.token()
         },
         body: JSON.stringify(conversion)
-      })
+      });
+      if (res.status === 401){
+        return undefined;
+      }
       return res.json();
     };
 
-    async getCount():Promise<Conversion[]>{
+    async getCount():Promise<number>{
       const res = await this.getAuth("CurrencyConverison/count")
       return res.json();
     };

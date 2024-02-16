@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 300px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    h2{
+        font-size: x-large;
+    }
+}
+
+#especial{
+    background-color: rgb(72, 75, 252);
+    color: black;
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 100ms;
+    &:hover{
+        filter: brightness(0.8);
+    }
+}
+
+#cerrar{
+    font-weight: bold;
+    color: black;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 100ms;
+    &:hover{
+        filter: brightness(0.8);
+    }
+}

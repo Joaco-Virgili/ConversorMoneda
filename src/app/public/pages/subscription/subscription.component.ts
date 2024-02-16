@@ -22,39 +22,52 @@ export class SubscriptionComponent {
   }
 
 
-  @Input() subscription = {
+  @Input() subscription: Subscription = {
     id: 0,
     name: '',
     price: 0,
-    amountOfConverion: 0
-  }
+    amountOfConversion: 0
+  };
 
   ngOnInit(): void {
     this.subsService.getAll().then(res => {
       this.subscriptions = res;
-    })
+    });
   }
 
+  changeSub(Id: number): void {
+    const newSubscription: UserSubs = {
+      subscriptionId: Id
+    };
 
-  changeSub(subId: number){
-    this.userService.edit(this.subData).then(res => {
-      Swal.fire({
-        title: "¿Estas seguro que desas cambiar de subscripción?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, cambiar"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "Cambiado",
-            text: "Su subscripcion ha sido cambiada con exito",
-            icon: "success"
-          });
-        }
-      });
-      this.router.navigate(['/subscription']);
-    }) 
+    Swal.fire({
+      title: "¿Estás seguro que deseas cambiar de suscripción?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, cambiar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.edit(newSubscription).then(res => {
+          if (!res) {
+            Swal.fire({
+              title: "Error",
+              text: "No se ha podido cambiar de suscripción",
+              icon: "error"
+            });
+          } else {
+            Swal.fire({
+              title: "Cambiado",
+              text: "Su suscripción ha sido cambiada con éxito",
+              icon: "success"
+            });
+            this.subData.subscriptionId = Id;
+          }
+        }).catch(err => {
+          console.error("Error al cambiar de suscripción:", err);
+        });
+      }
+    });
   }
 }

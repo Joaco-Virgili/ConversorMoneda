@@ -9,8 +9,7 @@ import { API } from "src/assets/api/api.connection";
   export class UserService extends ApiService {
     
     async edit(subId:UserSubs):Promise<boolean>{
-        if(!subId.subscriptionId) return false;
-        const res = await fetch(API+"User/SubscriptionId",{
+        const res = await fetch(API + "User/SubscriptionId",{
           method:'PUT',
           headers:{
             "Content-type":"application/json",

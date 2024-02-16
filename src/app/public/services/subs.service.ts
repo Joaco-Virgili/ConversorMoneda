@@ -16,10 +16,14 @@ export class SubsService extends ApiService {
     return resJson;
   };
 
-  async getUserSubs(id:number | string):Promise<User>{
-    const res = await this.getAuth("User/"+id)
-    const resJson = await res.json();
-    return resJson;
-  };
-  
+  async getById(id: number | string): Promise<Subscription | undefined> {
+    const res = await fetch(API + 'Subscription/' + id, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: 'Bearer ' + this.auth.token(),
+      },
+    });
+    return await res.json();
+  }
 }

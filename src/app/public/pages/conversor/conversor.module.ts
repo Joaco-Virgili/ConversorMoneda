@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ConversorRoutingModule } from './conversor-routing.module';
 import { ConversorComponent } from './conversor.component';
 import { FormsModule } from '@angular/forms';
-import { ViewResultComponent } from "../../components/view-result/view-result.component";
+import { NewCurrencyComponent } from "../../components/new-currency/new-currency.component";
+import { EditCurrencyComponent } from "../../components/edit-currency/edit-currency.component";
+import { DeleteCurrencyComponent } from "../../components/delete-currency/delete-currency.component";
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ViewResultComponent } from "../../components/view-result/view-result.co
         CommonModule,
         ConversorRoutingModule,
         FormsModule,
-        ViewResultComponent
+        NewCurrencyComponent,
+        EditCurrencyComponent,
+        DeleteCurrencyComponent
     ]
 })
 export class ConversorModule { }

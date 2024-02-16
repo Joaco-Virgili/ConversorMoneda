@@ -5,7 +5,6 @@
             <app-tarjeta-subs
             *ngFor="let subscription of subscriptions"
             [subscription]="subscription"
-            [routerLink]="[subscription.id]"
             (click)="changeSub(subscription.id)" name="subsriptionId" ngForm
             ></app-tarjeta-subs>
         </div>

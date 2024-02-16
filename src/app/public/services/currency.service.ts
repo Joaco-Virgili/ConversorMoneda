@@ -21,4 +21,43 @@ export class CurrencyService extends ApiService {
     return resJson[0];
   };
 
+  async create(currency:Currency):Promise<void>{
+    const res = await fetch(API + 'Currency',{
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json',
+        Authorization: "Bearer "+ this.auth.token()
+      },
+      body: JSON.stringify(currency)
+    })
+    if (res.status === 401){
+      return undefined;
+    }
+    return res.json();
+  };
+
+  async edit(currency: Currency): Promise<void> {
+    if (!currency.id) {
+      return undefined;
+    }
+    const res = await fetch(API + 'Currency/' + currency.id, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: 'Bearer ' + this.auth.token(),
+      },
+      body: JSON.stringify(currency),
+    });
+    return res.json();
+  }
+
+  async delete(id: number): Promise<boolean> {
+    const res = await fetch(API + 'Currency/' + id, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + this.auth.token(),
+      },
+    });
+    return res.ok;
+  }
 }

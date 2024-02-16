@@ -1,0 +1,21 @@
+<div class="container">
+    <form #newCurrencyForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Nueva moneda</h2>
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" name="name" [(ngModel)]="currency.name" />
+        </div>
+        <div class="form-group">
+            <label for="">Simbolo</label>
+            <input type="text" name="symbol" [(ngModel)]="currency.symbol"/>
+        </div>
+        <div class="form-group">
+            <label for="">Valor</label>
+            <input type="number" name="value" [(ngModel)]="currency.value"/>
+        </div>
+        <div class="boton">
+            <button type="submit" id="especial">Crear</button>
+            <button type="button" id="cerrar" (click)="cerrar.emit()">Cancelar</button>
+        </div>
+    </form>
+</div>
