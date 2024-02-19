@@ -21,7 +21,7 @@
             </div>
             <button type="submit">Convertir</button>
         </form>
-        <a [routerLink]="['/subscription']" (click)="dialognewCurrency.showModal()"><button id="sub-btn" type="button">Subscripción</button></a>
+        <a [routerLink]="['/subscription']"><button id="sub-btn" type="button">Subscripción</button></a>
         <div id="admin">
             <a *ngIf="isAdmin()"><button (click)="dialognewCurrency.showModal()" id="sub-btn-adm" type="button">Nueva Moneda</button></a>
             <dialog method="dialog" #dialognewCurrency>
